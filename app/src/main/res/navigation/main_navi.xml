@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navi"
+    app:startDestination="@id/mazoFragment">
+
+    <fragment
+        android:id="@+id/mazoFragment"
+        android:name="com.juni.ola2.MazoFragment"
+        android:label="fragment_mazo"
+        tools:layout="@layout/fragment_mazo" >
+        <action
+            android:id="@+id/action_mazoFragment_to_detallesFragment"
+            app:destination="@id/detallesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detallesFragment"
+        android:name="com.juni.ola2.DetallesFragment"
+        android:label="fragment_detalles"
+        tools:layout="@layout/fragment_detalles" >
+        <argument
+            android:name="carta01"
+            app:argType="integer"
+            android:defaultValue="999" />
+        <argument
+            android:name="carta02"
+            app:argType="integer"
+            android:defaultValue="999" />
+        <argument
+            android:name="carta03"
+            app:argType="integer"
+            android:defaultValue="999" />
+    </fragment>
+</navigation>
