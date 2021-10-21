@@ -1,12 +1,14 @@
-package com.juni.ola2
+package com.juni.ola2.ui.view
 
 import android.util.Log
 import android.view.DragEvent
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.juni.ola2.CustomAdapter
+import com.juni.ola2.CustomListener
+import com.juni.ola2.R
 
- class DragListener internal constructor(private val listener: CustomListener) : View.OnDragListener {
+class DragListener internal constructor(private val listener: CustomListener) : View.OnDragListener {
     private var isDropped = false
     override fun onDrag(v: View, event: DragEvent): Boolean {
         when (event.action) {

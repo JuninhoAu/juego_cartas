@@ -1,178 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/fondo"
+tools:context=".ui.view.MazoFragment">
 
-    <data>
+<LinearLayout
+    android:id="@+id/empty_list_text_view_1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="12dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
-    </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_weight="7"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Arrastra tu carta"
+        android:textColor="@color/white"
+        android:textSize="19sp" />
+
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/ic_input_get" />
+
+
+</LinearLayout>
+
+
+<ImageView
+    android:id="@+id/img01"
+    android:layout_width="80sp"
+    android:layout_height="160dp"
+    android:layout_marginStart="12dp"
+    android:focusable="true"
+    android:scaleType="centerCrop"
+    android:src="@drawable/locker_border"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/img02"
+    app:layout_goneMarginStart="12dp" />
+
+<ImageView
+    android:id="@+id/img02"
+    android:layout_width="80sp"
+    android:layout_height="160dp"
+    android:layout_marginTop="32dp"
+    android:focusable="true"
+    android:scaleType="centerCrop"
+    android:src="@drawable/locker_border"
+    app:layout_constraintEnd_toStartOf="@+id/img03"
+    app:layout_constraintStart_toEndOf="@+id/img01"
+    app:layout_constraintTop_toBottomOf="@+id/empty_list_text_view_1" />
+
+
+<ImageView
+    android:id="@+id/img03"
+    android:layout_width="80sp"
+    android:layout_height="160dp"
+    android:layout_marginTop="4dp"
+    app:layout_goneMarginStart="16dp"
+    android:layout_marginEnd="12dp"
+    android:focusable="true"
+    android:scaleType="centerCrop"
+    android:src="@drawable/locker_border"
+    app:layout_constraintBottom_toBottomOf="@+id/img02"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/img02"
+    app:layout_constraintVertical_bias="1.0" />
+
+<TextView
+    android:id="@+id/txtv01"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/arrastrar"
+    android:textColor="@color/white"
+    android:gravity="center_horizontal"
+    android:textSize="12sp"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
+    app:layout_constraintBottom_toBottomOf="@+id/img01"
+    app:layout_constraintEnd_toEndOf="@+id/img01"
+    app:layout_constraintStart_toStartOf="@id/img01"
+    app:layout_constraintTop_toTopOf="@id/img01" />
+
+<TextView
+    android:id="@+id/txtv02"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:gravity="center_horizontal"
+    android:textSize="12sp"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
+    app:layout_constraintBottom_toBottomOf="@+id/img02"
+    app:layout_constraintEnd_toEndOf="@+id/img02"
+    app:layout_constraintStart_toStartOf="@id/img02"
+    app:layout_constraintTop_toTopOf="@id/img02" />
+
+<TextView
+    android:id="@+id/txtv03"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:gravity="center_horizontal"
+    android:textSize="12sp"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
+    app:layout_constraintBottom_toBottomOf="@+id/img03"
+    app:layout_constraintEnd_toEndOf="@+id/img03"
+    app:layout_constraintStart_toStartOf="@id/img03"
+    app:layout_constraintTop_toTopOf="@id/img03" />
+
+
+<FrameLayout
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginBottom="8dp"
+    android:tag="figura1"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/img03"
+    app:layout_constraintVertical_bias="1.0">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/fondo"
-        tools:context=".MazoFragment">
+        android:layout_height="90dp"
+        android:layout_gravity="bottom"
+        android:tag="figura1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/empty_list_text_view_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="12dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <Button
+        android:id="@+id/btnext"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:text="Ver Lectura"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="18dp"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                app:srcCompat="?attr/actionModeCloseDrawable" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="32dp"
-                android:layout_weight="7"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="Arrastra tu carta"
-                android:textColor="@color/white"
-                android:textSize="19sp" />
+</FrameLayout>
 
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="18dp"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                app:srcCompat="@android:drawable/ic_input_get" />
-
-
-        </LinearLayout>
-
-
-        <ImageView
-            android:id="@+id/img01"
-            android:layout_width="80sp"
-            android:layout_height="160dp"
-            android:layout_marginStart="12dp"
-            android:focusable="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/locker_border"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/img02"
-            app:layout_goneMarginStart="12dp" />
-
-        <ImageView
-            android:id="@+id/img02"
-            android:layout_width="80sp"
-            android:layout_height="160dp"
-            android:layout_marginTop="32dp"
-            android:focusable="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/locker_border"
-            app:layout_constraintEnd_toStartOf="@+id/img03"
-            app:layout_constraintStart_toEndOf="@+id/img01"
-            app:layout_constraintTop_toBottomOf="@+id/empty_list_text_view_1" />
-
-
-        <ImageView
-            android:id="@+id/img03"
-            android:layout_width="80sp"
-            android:layout_height="160dp"
-            android:layout_marginTop="4dp"
-            app:layout_goneMarginStart="16dp"
-            android:layout_marginEnd="12dp"
-            android:focusable="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/locker_border"
-            app:layout_constraintBottom_toBottomOf="@+id/img02"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/img02"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
-            android:id="@+id/txtv01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/arrastrar"
-            android:textColor="@color/white"
-            android:gravity="center_horizontal"
-            android:textSize="12sp"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/img01"
-            app:layout_constraintEnd_toEndOf="@+id/img01"
-            app:layout_constraintStart_toStartOf="@id/img01"
-            app:layout_constraintTop_toTopOf="@id/img01" />
-
-        <TextView
-            android:id="@+id/txtv02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:gravity="center_horizontal"
-            android:textSize="12sp"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/img02"
-            app:layout_constraintEnd_toEndOf="@+id/img02"
-            app:layout_constraintStart_toStartOf="@id/img02"
-            app:layout_constraintTop_toTopOf="@id/img02" />
-
-        <TextView
-            android:id="@+id/txtv03"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:gravity="center_horizontal"
-            android:textSize="12sp"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/img03"
-            app:layout_constraintEnd_toEndOf="@+id/img03"
-            app:layout_constraintStart_toStartOf="@id/img03"
-            app:layout_constraintTop_toTopOf="@id/img03" />
-
-
-        <FrameLayout
-            android:id="@+id/frameLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="8dp"
-            android:tag="figura1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img03"
-            app:layout_constraintVertical_bias="1.0">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view_2"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:layout_gravity="bottom"
-                android:tag="figura1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Button
-                android:id="@+id/btnext"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_gravity="bottom"
-                android:text="Ver Lectura"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
-        </FrameLayout>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

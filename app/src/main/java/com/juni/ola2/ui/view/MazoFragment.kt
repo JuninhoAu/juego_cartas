@@ -1,4 +1,4 @@
-package com.juni.ola2
+package com.juni.ola2.ui.view
 
 import android.os.Bundle
 import android.view.DragEvent
@@ -12,22 +12,23 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.juni.ola2.*
 import com.juni.ola2.databinding.FragmentMazoBinding
+import com.juni.ola2.model.Cartas
+import com.juni.ola2.ui.viewmodel.ListViewModel
 
 
-class MazoFragment : Fragment(),CustomListener {
+class MazoFragment : Fragment(), CustomListener {
 
     private lateinit var binding: FragmentMazoBinding
     private lateinit var adapter2: CustomAdapter
     private var listB= mutableListOf<Cartas>()
-
     private var cart01=999
     private var cart02=999
     private var cart03=999
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding= FragmentMazoBinding.inflate(layoutInflater)
 
         binding.recyclerView2.init( MutableList(25){index ->1 +index  })
@@ -45,31 +46,13 @@ class MazoFragment : Fragment(),CustomListener {
 
         })
 
-
-
-
-
         binding.btnext.setOnClickListener {
-
 
            val action=MazoFragmentDirections.actionMazoFragmentToDetallesFragment(cart01,cart02,cart03)
             findNavController().navigate(action)
         }
 
-
-
-
-
-
-
-
-
         return binding.root
-
-
-
-
-
 
     }
 
@@ -85,19 +68,14 @@ class MazoFragment : Fragment(),CustomListener {
 
     }
 
-
     private val dragListener = View.OnDragListener { v, event -> val receiverView: ImageView = v as ImageView
 
         when (event.action) {
             DragEvent.ACTION_DRAG_STARTED -> {
-
                 true
             }
 
             DragEvent.ACTION_DRAG_ENTERED -> {
-
-
-
                 true
             }
 
@@ -105,9 +83,6 @@ class MazoFragment : Fragment(),CustomListener {
                 true
 
             DragEvent.ACTION_DRAG_EXITED -> {
-
-
-
                 true
             }
 
@@ -117,19 +92,16 @@ class MazoFragment : Fragment(),CustomListener {
 
                     if(receiverView.tag as String=="ola1") {
 
-
                         if (receiverView.id==binding.img01.id){
 
-
                             val someInt = (0..21).shuffled().first()
-                            cart01=listB[someInt].numero
+                            cart01=listB[someInt].number
                             binding.img01.tag="seleccionado"
-                            binding.img01.setImageResource(listB[someInt].ubicacion)
+                            binding.img01.setImageResource(listB[someInt].location)
                             listB.removeAt(someInt)
                             binding.img02.tag="ola1"
                             binding.txtv01.text= ""
                             binding.txtv02.text= getString(R.string.arrastrar)
-
 
 
                         }
@@ -137,23 +109,21 @@ class MazoFragment : Fragment(),CustomListener {
                         if (receiverView.id==binding.img02.id){
 
                             val someInt = (0..20).shuffled().first()
-                            cart02=listB[someInt].numero
-                            binding.img02.setImageResource(listB[someInt].ubicacion)
+                            cart02=listB[someInt].number
+                            binding.img02.setImageResource(listB[someInt].location)
                             listB.removeAt(someInt)
                             binding.img02.tag="seleccionado"
                             binding.img03.tag="ola1"
                             binding.txtv02.text= ""
                             binding.txtv03.text= getString(R.string.arrastrar)
 
-
-
                         }
 
                         if (receiverView.id==binding.img03.id){
 
                             val someInt = (0..19).shuffled().first()
-                            cart03=listB[someInt].numero
-                            binding.img03.setImageResource(listB[someInt].ubicacion)
+                            cart03=listB[someInt].number
+                            binding.img03.setImageResource(listB[someInt].location)
                             listB.removeAt(someInt)
                             binding.txtv03.text= ""
                             binding.img03.tag="seleccionado"
@@ -161,28 +131,16 @@ class MazoFragment : Fragment(),CustomListener {
                             binding.recyclerView2.visibility=View.GONE
                             binding.btnext.visibility=View.VISIBLE
 
-
                         }
 
                         adapter2.borrar()
                         v.invalidate()
 
                     }
-
-
-
-
                 }
                 }
 
-
-
-
-
-
-
-
-                true
+          true
             }
 
             DragEvent.ACTION_DRAG_ENDED -> {

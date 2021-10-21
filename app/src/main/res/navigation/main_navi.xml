@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mazoFragment"
-        android:name="com.juni.ola2.MazoFragment"
+        android:name="com.juni.ola2.ui.view.MazoFragment"
         android:label="fragment_mazo"
         tools:layout="@layout/fragment_mazo" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detallesFragment"
-        android:name="com.juni.ola2.DetallesFragment"
+        android:name="com.juni.ola2.ui.view.DetailFragment"
         android:label="fragment_detalles"
         tools:layout="@layout/fragment_detalles" >
         <argument

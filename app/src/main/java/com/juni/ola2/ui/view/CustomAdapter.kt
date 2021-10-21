@@ -5,10 +5,9 @@ import android.os.Build
 import android.view.*
 import android.widget.FrameLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.juni.ola2.ui.view.DragListener
 
-interface CustomListener{
-
-    fun setEmptyList(visibility:Int,recyclerView: Int,emptyTextView: Int)
+interface CustomListener{ fun setEmptyList(visibility:Int,recyclerView: Int,emptyTextView: Int)
 }
 
 class CustomAdapter(private  var list: MutableList<Int>,private val listener:CustomListener?):RecyclerView.Adapter<CustomAdapter.CustomViewHolder?>(),View.OnTouchListener {
@@ -74,7 +73,7 @@ class CustomAdapter(private  var list: MutableList<Int>,private val listener:Cus
 
     }
 
-    val dragInstance:DragListener? get() = if (listener!=null){
+    val dragInstance: DragListener? get() = if (listener!=null){
         DragListener(listener)
     }else{
         null
