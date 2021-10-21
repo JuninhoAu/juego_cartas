@@ -1,4 +1,4 @@
-package com.juni.ola2
+package com.juni.ola2.ui.view
 
 import android.app.Activity
 import android.content.Intent
